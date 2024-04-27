@@ -1,113 +1,155 @@
+import React from "react";
 import Image from "next/image";
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://www.linkedin.com/in/jpcbarros/",
+    icon: "linkedin",
+    title: "Connect on LinkedIn",
+  },
+  {
+    href: "https://github.com/jpcbarros",
+    icon: "github",
+    title: "See my projects on GitHub",
+  },
+  {
+    href: "mailto:joao@debarros.eu",
+    icon: "at-sign",
+    title: "Drop me an email",
+  },
+];
+
+const TOOLS = [
+  "Node.js",
+  "React",
+  "Typescript",
+  "Tailwind CSS",
+  "Next.js",
+  "REST/GraphQL APIs",
+  "AWS",
+  "SQL",
+  "NoSQL",
+  "Serverless",
+  "Docker",
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <div className="flex min-h-screen flex-col py-16 gap-24 md:gap-12">
+      {/* Header */}
+      <header className="container max-w-screen-xl mx-auto px-8">
+        {/* Brand name */}
+        <nav className="flex items-center justify-between">
+          <a href="/" className="flex flex-row gap-1 items-center justify-start" title="Go home">
+            <i data-feather="at-sign" />
+            <span className="font-mono">jpcbarros</span>
+          </a>
+          {/* @todo allow switching light/dark themes */}
+        </nav>
+      </header>
+
+      {/* Main */}
+      <main className="container max-w-screen-lg mx-auto px-8">
+        {/* Who am I */}
+        <section className="text-center mb-16">
+          {/* Avatar */}
+          <div className="flex justify-center mb-12">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
+              src="/avatar.png"
+              alt="It's a me, João Pedro Barros!"
+              className="rounded-full dark:grayscale"
+              width={160}
+              height={160}
               priority
             />
-          </a>
+          </div>
+          {/* Kinda hero */}
+          <h6 className="font-semibold text-gray-900 dark:text-white text-4xl md:text-6xl leading-none mb-8">
+            João Pedro Barros
+          </h6>
+          <p className="font-normal text-gray-600 dark:text-gray-400 text-lg md:text-xl">
+            I&apos;m a full-stack software engineer with +10 years of experience building all sorts of{" "}
+            <span className="font-extrabold">web applications</span>, and I&apos;m currently helping companies to give
+            their customers a seamless way to set up and start using their product at{" "}
+            <a href="https://www.trybento.co/" className="text-blue-600 hover:text-blue-700" target="_blank">
+              Bento
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* Tools I've been working with */}
+        <p className="text-center text-pretty leading-7 text-md md:text-lg text-gray-600 dark:text-gray-400">
+          These are <span className="italic">some</span> of the tools and concepts I&apos;m most experienced with:
+          <br className="hidden md:block" />
+          {TOOLS.map((tool, index) => (
+            <>
+              {index === TOOLS.length - 1 ? " and " : index > 0 ? ", " : " "}
+              <span
+                key={`tool-${index}`}
+                className="font-mono text-sm text-nowrap rounded-md py-1 px-1.5 bg-gray-800 dark:bg-gray-400 text-white dark:text-black"
+              >
+                {tool}
+              </span>
+            </>
+          ))}{" "}
+          .
+        </p>
+      </main>
+
+      {/* Footer */}
+      <footer className="container max-w-screen-xl mx-auto px-8">
+        {/* Contact info */}
+        <div className="flex items-center justify-center space-x-8 mb-8">
+          {SOCIAL_LINKS.map(({ icon, href, title }) => (
+            <a
+              key={icon}
+              href={href}
+              title={title}
+              className="p-5 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 transition ease-in-out duration-300"
+            >
+              <i data-feather={icon} />
+            </a>
+          ))}
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {/* Copyright and others */}
+        <p className="text-center text-pretty font-normal font-mono text-gray-400 text-sm">
+          &copy; {new Date().getFullYear()} &mdash; Built with{" "}
+          <a
+            href="https://ion.sst.dev/"
+            className="text-gray-600 dark:text-gray-200 hover:text-purple-600"
+            target="_blank"
+          >
+            Ion
+          </a>
+          ,{" "}
+          <a
+            href="https://nextjs.org/"
+            className="text-gray-600 dark:text-gray-200 hover:text-purple-600"
+            target="_blank"
+          >
+            Next.js
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://tailwindcss.com/"
+            className="text-gray-600 dark:text-gray-200 hover:text-purple-600"
+            target="_blank"
+          >
+            Tailwind CSS
+          </a>
+          . See the code in{" "}
+          <a
+            href="https://github.com/jpcbarros/debarros.eu"
+            className="text-gray-600 dark:text-gray-200 hover:text-purple-600"
+            target="_blank"
+          >
+            Github
+          </a>
+          .
+        </p>
+      </footer>
+    </div>
   );
 }
