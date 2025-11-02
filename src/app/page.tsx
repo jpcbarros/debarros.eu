@@ -23,12 +23,11 @@ const TOOLS = [
   "Node.js",
   "React",
   "Typescript",
-  "Tailwind CSS",
   "Next.js",
   "REST/GraphQL APIs",
   "AWS",
-  "SQL",
-  "NoSQL",
+  "Databases",
+  "Web Components",
   "Serverless",
   "Docker",
 ];
@@ -68,19 +67,23 @@ export default function Home() {
             João Pedro Barros
           </h6>
           <p className="font-normal text-gray-600 dark:text-gray-400 text-lg md:text-xl">
-            I&apos;m a full-stack software engineer with +10 years of experience building all sorts of{" "}
-            <span className="font-extrabold">web applications</span>, and I&apos;m currently helping companies to give
-            their customers a seamless way to set up and start using their product at{" "}
-            <a href="https://www.trybento.co/" className="text-blue-600 hover:text-blue-700" target="_blank">
-              Bento
+            I&apos;m a product engineer passionate about turning complex challenges into simple, scalable solutions. For
+            more than a decade, I&apos;ve been building products that bridge business goals with great user experience.
+          </p>
+          <p className="font-normal text-gray-600 dark:text-gray-400 text-lg md:text-xl mt-6">
+            Now at{" "}
+            <a href="https://www.epilot.cloud/en" className="text-epilot" target="_blank">
+              epilot
             </a>
-            .
+            , I help companies digitalize and streamline their processes to sell more and cultivate happier customers —
+            all through our <span className="text-epilot">Energy X</span>RM platform.
           </p>
         </section>
 
         {/* Tools I've been working with */}
         <p className="text-center text-pretty leading-7 text-md md:text-lg text-gray-600 dark:text-gray-400">
-          These are <span className="italic">some</span> of the tools and concepts I&apos;m most experienced with:
+          Although not that relevant, these are <span className="italic">some</span> of the tools and concepts I&apos;m
+          most experienced with:
           <br className="hidden md:block" />
           {TOOLS.map((tool, index) => (
             <>

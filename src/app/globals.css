@@ -32,3 +32,24 @@ body {
     text-wrap: balance;
   }
 }
+
+.text-epilot {
+  background-image: linear-gradient(98deg, #4c4cff 29.96%, #00d7ff 86.95%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  position: relative;
+}
+
+a.text-epilot:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1em; /* Slightly below baseline */
+  height: 0.1em;
+  background-image: linear-gradient(98deg, #4c4cff 29.96%, #00d7ff 86.95%);
+  pointer-events: none;
+  z-index: 1;
+}
