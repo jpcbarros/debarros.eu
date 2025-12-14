@@ -14,8 +14,18 @@ Open [http://localhost:3000](http://localhost:3000) on your browser to see the r
 
 ## Deploy
 
-To deploy to production, please run the following:
+### Manual Deployment
+
+To deploy to production manually, please run the following:
 
 ```sh
-sst deploy --stage=production
+yarn deploy --stage=production
 ```
+
+### Automated Deployment (CI/CD)
+
+This project uses GitHub Actions for automated deployments. When you push to the `main` branch, the workflow will:
+
+1. Run the necessary checks (e.g. linting)
+2. Build the application
+3. Deploy to AWS using SST

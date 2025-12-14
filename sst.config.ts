@@ -12,7 +12,6 @@ export default $config({
       home: "aws",
       providers: {
         aws: {
-          profile: "default",
           region: "us-east-1",
         },
       },
